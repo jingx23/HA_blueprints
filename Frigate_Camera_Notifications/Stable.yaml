@@ -225,7 +225,7 @@ blueprint:
                 - label: None
                   value: ""
                 - label: Clip
-                  value: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/{{camera}}/clip.mp4"
+                  value: "{{base_url}}/api/events/{{id}}/clip.mp4"
         color:
           name: Notification Color - Android/TV only (Optional)
           description: Set the color of the notification on your Android mobile device or TV.
@@ -541,14 +541,14 @@ blueprint:
             The URL to open when tapping on the notification. Some presets are provided, you can also set your own by typing in the box.
 
             These options define the text and URLs associated with the three action buttons at the bottom of the notification.
-          default: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/{{camera}}/clip.mp4"
+          default: "{{base_url}}/api/events/{{id}}/clip.mp4"
           selector:
             select:
               options:
                 - label: View Clip
-                  value: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/{{camera}}/clip.mp4"
+                  value: ""
                 - label: View Snapshot
-                  value: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/snapshot.jpg"
+                  value: "{{base_url}}/api/events/{{id}}/snapshot.jpg"
                 - label: View Stream
                   value: "{{base_url}}/api/camera_proxy_stream/camera.{{trigger.payload_json['after']['camera'] | lower | replace('-','_')}}?token={{state_attr( 'camera.' ~ camera, 'access_token')}}"
                 - label: Open Home Assistant (web)
@@ -573,14 +573,14 @@ blueprint:
         url_1:
           name: Action Button 1 URL
           description: Customise what happens when you press the first Action Button. Select from one of the preconfigured options or enter your own custom URL.
-          default: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/{{camera}}/clip.mp4"
+          default: ""
           selector:
             select:
               options:
                 - label: View Clip
-                  value: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/{{camera}}/clip.mp4"
+                  value: ""
                 - label: View Snapshot
-                  value: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/snapshot.jpg"
+                  value: "{{base_url}}/api/events/{{id}}/snapshot.jpg"
                 - label: View Stream
                   value: "{{base_url}}/api/camera_proxy_stream/camera.{{trigger.payload_json['after']['camera'] | lower | replace('-','_')}}?token={{state_attr( 'camera.' ~ camera, 'access_token')}}"
                 - label: Open Home Assistant (web)
@@ -609,14 +609,14 @@ blueprint:
         url_2:
           name: Action Button 2 URL
           description: Customise what happens when you press the second Action Button. Select from one of the preconfigured options or enter your own custom URL.
-          default: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/snapshot.jpg"
+          default: "{{base_url}}/api/events/{{id}}/snapshot.jpg"
           selector:
             select:
               options:
                 - label: View Clip
-                  value: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/{{camera}}/clip.mp4"
+                  value: ""
                 - label: View Snapshot
-                  value: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/snapshot.jpg"
+                  value: "{{base_url}}/api/events/{{id}}/snapshot.jpg"
                 - label: View Stream
                   value: "{{base_url}}/api/camera_proxy_stream/camera.{{trigger.payload_json['after']['camera'] | lower | replace('-','_')}}?token={{state_attr( 'camera.' ~ camera, 'access_token')}}"
                 - label: Open Home Assistant (web)
@@ -652,9 +652,9 @@ blueprint:
                 - label: Silence New Notifications
                   value: silence-{{ camera }}
                 - label: View Clip
-                  value: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/{{camera}}/clip.mp4"
+                  value: ""
                 - label: View Snapshot
-                  value: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/snapshot.jpg"
+                  value: "{{base_url}}/api/events/{{id}}/snapshot.jpg"
                 - label: View Stream
                   value: "{{base_url}}/api/camera_proxy_stream/camera.{{trigger.payload_json['after']['camera'] | lower | replace('-','_')}}?token={{state_attr( 'camera.' ~ camera, 'access_token')}}"
                 - label: Open Home Assistant (web)
@@ -1070,7 +1070,7 @@ action:
                                 car_ui: "{{android_auto}}"
                                 # Android/Fire TV
                                 image:
-                                  url: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/snapshot.jpg"
+                                  url: "{{base_url}}/api/events/{{id}}/snapshot.jpg"
                                 fontsize: "{{tv_size}}"
                                 position: "{{tv_position}}"
                                 duration: "{{tv_duration}}"
@@ -1354,7 +1354,7 @@ action:
                                       car_ui: "{{android_auto}}"
                                       # Android/Fire TV
                                       image:
-                                        url: "{{base_url}}/api/frigate{{client_id}}/notifications/{{id}}/snapshot.jpg"
+                                        url: "{{base_url}}/api/events/{{id}}/snapshot.jpg"
                                       video: "{{video}}"
                                       fontsize: "{{tv_size}}"
                                       position: "{{tv_position}}"
