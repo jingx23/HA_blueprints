@@ -546,7 +546,7 @@ blueprint:
             select:
               options:
                 - label: View Clip
-                  value: ""
+                  value: "{{base_url}}/api/events/{{id}}/clip.mp4"
                 - label: View Snapshot
                   value: "{{base_url}}/api/events/{{id}}/snapshot.jpg"
                 - label: View Stream
